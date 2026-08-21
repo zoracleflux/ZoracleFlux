@@ -1,0 +1,12 @@
+{
+  "command": "doctor",
+  "message": "Deterministic local path is available; optional model/provider adapters are disabled.",
+  "model_calls": 0,
+  "network_calls": 0,
+  "offline_default": true,
+  "platform": "Windows-10-10.0.26200-SP0",
+  "python": "3.10.1",
+  "schema_version": "1",
+  "status": "passed",
+  "version": "1.0.0rc2"
+}

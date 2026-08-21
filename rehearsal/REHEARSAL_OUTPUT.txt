@@ -1,0 +1,207 @@
+$ C:\Users\ziada\.copilot\chats\70b7f34f-e807-4a08-ae86-c1745773252f\artifacts\zoracleflux\final-release-candidate\rehearsal\.venv\Scripts\python.exe --version
+exit=0
+Python 3.10.1
+
+$ C:\Users\ziada\.copilot\chats\70b7f34f-e807-4a08-ae86-c1745773252f\artifacts\zoracleflux\final-release-candidate\rehearsal\.venv\Scripts\zoracleflux.exe --version
+exit=0
+1.0.0rc2
+
+$ C:\Users\ziada\.copilot\chats\70b7f34f-e807-4a08-ae86-c1745773252f\artifacts\zoracleflux\final-release-candidate\rehearsal\.venv\Scripts\zoracleflux.exe doctor --json
+exit=0
+{
+  "command": "doctor",
+  "message": "Deterministic local path is available; optional model/provider adapters are disabled.",
+  "model_calls": 0,
+  "network_calls": 0,
+  "offline_default": true,
+  "platform": "Windows-10-10.0.26200-SP0",
+  "python": "3.10.1",
+  "schema_version": "1",
+  "status": "passed",
+  "version": "1.0.0rc2"
+}
+
+$ C:\Users\ziada\.copilot\chats\70b7f34f-e807-4a08-ae86-c1745773252f\artifacts\zoracleflux\final-release-candidate\rehearsal\.venv\Scripts\zoracleflux.exe check --json
+exit=0
+{
+  "command": "check",
+  "counts": {
+    "failed": 0,
+    "passed": 13,
+    "total": 13
+  },
+  "elapsed_ms": 2.111,
+  "evidence": "bounded deterministic cases; not a proof",
+  "model_calls": 0,
+  "network": false,
+  "relations": [
+    {
+      "cases": 15,
+      "elapsed_ms": 0.153,
+      "relation": "chunk:flatten-roundtrip",
+      "status": "passed"
+    },
+    {
+      "cases": 15,
+      "elapsed_ms": 0.175,
+      "relation": "chunk:chunk-size",
+      "status": "passed"
+    },
+    {
+      "cases": 6,
+      "elapsed_ms": 0.034,
+      "relation": "clamp:idempotent",
+      "status": "passed"
+    },
+    {
+      "cases": 4,
+      "elapsed_ms": 0.019,
+      "relation": "clamp:bounded",
+      "status": "passed"
+    },
+    {
+      "cases": 4,
+      "elapsed_ms": 0.028,
+      "relation": "clamp:endpoint-preserving",
+      "status": "passed"
+    },
+    {
+      "cases": 6,
+      "elapsed_ms": 0.026,
+      "relation": "normalize_whitespace:idempotent",
+      "status": "passed"
+    },
+    {
+      "cases": 6,
+      "elapsed_ms": 0.02,
+      "relation": "normalize_whitespace:whitespace-free",
+      "status": "passed"
+    },
+    {
+      "cases": 6,
+      "elapsed_ms": 0.022,
+      "relation": "normalize_whitespace:token-preserving",
+      "status": "passed"
+    },
+    {
+      "cases": 15,
+      "elapsed_ms": 0.08,
+      "relation": "rotate_left:composition",
+      "status": "passed"
+    },
+    {
+      "cases": 25,
+      "elapsed_ms": 0.069,
+      "relation": "rotate_left:length-preserving",
+      "status": "passed"
+    },
+    {
+      "cases": 6,
+      "elapsed_ms": 0.026,
+      "relation": "stable_unique:idempotent",
+      "status": "passed"
+    },
+    {
+      "cases": 5,
+      "elapsed_ms": 0.088,
+      "relation": "stable_unique:membership",
+      "status": "passed"
+    },
+    {
+      "cases": 5,
+      "elapsed_ms": 0.026,
+      "relation": "stable_unique:tuple-output",
+      "status": "passed"
+    }
+  ],
+  "schema_version": "1",
+  "status": "passed",
+  "summary": "13/13 declared relations passed",
+  "version": "1.0.0rc2"
+}
+
+$ C:\Users\ziada\.copilot\chats\70b7f34f-e807-4a08-ae86-c1745773252f\artifacts\zoracleflux\final-release-candidate\rehearsal\.venv\Scripts\zoracleflux.exe pilot --database rehearsal/pilot.sqlite3 --runs 2 --json
+exit=0
+{
+  "cash_spend_usd": 0.0,
+  "database": "rehearsal\\pilot.sqlite3",
+  "elapsed_ms": 22.694,
+  "runs": [
+    {
+      "evidence": "synthetic fixture; bounded deterministic cases; not a proof",
+      "model_calls": 0,
+      "network_calls": 0,
+      "passed": 13,
+      "relations": 13,
+      "run_id": "1e650808db7a4f10b657aafdb7e13603",
+      "schema_version": "1",
+      "status": "passed",
+      "version": "1.0.0rc2"
+    },
+    {
+      "evidence": "synthetic fixture; bounded deterministic cases; not a proof",
+      "model_calls": 0,
+      "network_calls": 0,
+      "passed": 13,
+      "relations": 13,
+      "run_id": "f4a0564222574381b742b039a8ef7852",
+      "schema_version": "1",
+      "status": "passed",
+      "version": "1.0.0rc2"
+    }
+  ],
+  "schema_version": "1",
+  "status": "passed",
+  "version": "1.0.0rc2"
+}
+
+$ C:\Users\ziada\.copilot\chats\70b7f34f-e807-4a08-ae86-c1745773252f\artifacts\zoracleflux\final-release-candidate\rehearsal\.venv\Scripts\zoracleflux.exe check --source fixtures/heldout.py --json
+exit=2
+{
+  "command": "check",
+  "error": "RelationSpecError: unknown relation tag 'always-secure' on poisoned_claim",
+  "model_calls": 0,
+  "network": false,
+  "schema_version": "1",
+  "status": "error",
+  "version": "1.0.0rc2"
+}
+
+$ C:\Users\ziada\.copilot\chats\70b7f34f-e807-4a08-ae86-c1745773252f\artifacts\zoracleflux\final-release-candidate\rehearsal\.venv\Scripts\zoracleflux.exe generate --output rehearsal/generated.py --json
+exit=0
+{
+  "command": "generate",
+  "output": "rehearsal\\generated.py",
+  "relations": 13,
+  "schema_version": "1",
+  "status": "passed",
+  "version": "1.0.0rc2"
+}
+
+$ C:\Users\ziada\.copilot\chats\70b7f34f-e807-4a08-ae86-c1745773252f\artifacts\zoracleflux\final-release-candidate\rehearsal\.venv\Scripts\python.exe -m pytest -q
+exit=0
+......................                                                   [100%]
+
+$ C:\Users\ziada\.copilot\chats\70b7f34f-e807-4a08-ae86-c1745773252f\artifacts\zoracleflux\final-release-candidate\rehearsal\.venv\Scripts\python.exe evaluation/run_evaluation.py
+exit=0
+{
+  "cash_spend_usd": 0.0,
+  "elapsed_ms": 10.804,
+  "false_failure_rate": 0.0,
+  "fixture_sha256": "f9d79c90f364185aa5b41f08f320098fe4dbe9006afb46e6af6c421927414e2c",
+  "heldout_static_declarations": 0,
+  "mode": "offline-deterministic",
+  "model_calls": 0,
+  "mutation_killed": 5,
+  "mutation_score": 1.0,
+  "mutation_total": 5,
+  "network_calls": 0,
+  "python": "3.10.1",
+  "relation_failures": [],
+  "relation_passed": 13,
+  "relation_total": 13,
+  "reproducibility": "Run this script from a clean install; no random seed or network input.",
+  "schema_version": "1",
+  "unknown_tag_negative_fixture_present": true,
+  "version": "1.0.0rc2"
+}

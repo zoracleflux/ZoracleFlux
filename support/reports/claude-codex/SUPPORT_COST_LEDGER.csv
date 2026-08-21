@@ -1,0 +1,2 @@
+date,component,activity,cash_spend_usd,notes
+2026-08-21,ZoracleFlux Claude/Codex support,local artifact creation and deterministic tests,0.00,no package purchase or paid API; no credentials or network calls

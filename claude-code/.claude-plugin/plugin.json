@@ -1,0 +1,9 @@
+{
+  "name": "zoracleflux-claude-code",
+  "version": "1.0.0",
+  "description": "Run ZoracleFlux bounded, offline behavioral checks from Claude Code.",
+  "author": {
+    "name": "ZoracleFlux"
+  },
+  "license": "MIT"
+}

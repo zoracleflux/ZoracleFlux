@@ -1,0 +1,32 @@
+services:
+  pilot:
+    build:
+      context: ../..
+      dockerfile: support/production/Dockerfile
+    image: zoracleflux:1.0.0rc2-local
+    command: ["pilot", "--database", "/data/pilot.sqlite3", "--runs", "1", "--json"]
+    init: true
+    read_only: true
+    user: "10001:10001"
+    security_opt:
+      - no-new-privileges:true
+    cap_drop: ["ALL"]
+    network_mode: "none"
+    volumes:
+      - pilot-data:/data
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=16m
+  health:
+    image: zoracleflux:1.0.0rc2-local
+    command: ["python", "/opt/zoracleflux/support/production/healthcheck.py", "--root", "/opt/zoracleflux", "--db", "/data/pilot.sqlite3"]
+    read_only: true
+    user: "10001:10001"
+    security_opt:
+      - no-new-privileges:true
+    cap_drop: ["ALL"]
+    network_mode: "none"
+    volumes:
+      - pilot-data:/data:ro
+
+volumes:
+  pilot-data:

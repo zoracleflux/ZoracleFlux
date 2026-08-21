@@ -1,0 +1,9 @@
+# HELP zoracleflux_audit_events_total Count of valid local audit events.
+# TYPE zoracleflux_audit_events_total counter
+zoracleflux_audit_events_total 20
+# HELP zoracleflux_events_by_status_total Count of local audit events by event and status.
+# TYPE zoracleflux_events_by_status_total counter
+zoracleflux_events_by_status_total{event="check",status="error"} 1
+zoracleflux_events_by_status_total{event="check",status="passed"} 13
+zoracleflux_events_by_status_total{event="generate",status="passed"} 1
+zoracleflux_events_by_status_total{event="pilot",status="passed"} 5

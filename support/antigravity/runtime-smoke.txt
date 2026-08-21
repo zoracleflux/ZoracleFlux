@@ -1,0 +1,68 @@
+Antigravity runtime smoke evidence
+Date: 2026-08-21
+
+Installed runtime:
+path: C:\Users\ziada\AppData\Local\Programs\Antigravity IDE\Antigravity IDE.exe
+version: 1.107.0
+commit: ecfbad74d93962fc8ca485d93ab9b4f3d4cb6cf8
+build timestamp: 2026-08-13T08:37:22.547Z
+extension: google.antigravity 0.2.0
+
+Command:
+"C:\Users\ziada\AppData\Local\Programs\Antigravity IDE\bin\antigravity-ide.cmd" --version
+Output:
+1.107.0
+ecfbad74d93962fc8ca485d93ab9b4f3d4cb6cf8
+x64
+exit: 0
+
+Command:
+"C:\Users\ziada\AppData\Local\Programs\Antigravity IDE\bin\antigravity-ide.cmd" --help
+Relevant literal output:
+Model Context Protocol
+  --add-mcp <json> Adds a Model Context Protocol server definition to the user
+                   profile. Accepts JSON input in the form
+                   '{"name":"server-name","command":...}'
+exit: 0
+
+Isolated profile registration command:
+antigravity-ide.cmd --user-data-dir <support>\client-test-profile --add-mcp <JSON>
+Literal output:
+Added MCP servers: zoracleflux
+exit: 0
+
+Runtime-produced profile artifact:
+User\mcp.json
+{
+	"servers": {
+		"zoracleflux": {
+			"command": "python",
+			"args": [
+				"-u",
+				"server.py"
+			],
+			"cwd": "C:\\Users\\ziada\\.copilot\\chats\\70b7f34f-e807-4a08-ae86-c1745773252f\\artifacts\\zoracleflux\\support\\antigravity"
+		}
+	},
+	"inputs": []
+}
+
+Status command while the isolated IDE was running:
+antigravity-ide.cmd --user-data-dir <support>\client-test-profile --status
+Output included:
+Version:          Antigravity IDE 1.107.0 (ecfbad74d93962fc8ca485d93ab9b4f3d4cb6cf8, 2026-08-13T08:37:22.547Z)
+OS Version:       Windows_NT x64 10.0.26200
+Process Argv:     --user-data-dir <support>\client-test-profile ... --enable-smoke-test-driver
+exit: 0
+
+Host limitation observed:
+The isolated host started, but no agent/tool invocation surface is exposed by
+the installed CLI. Its language-server log reported missing account state:
+"Failed to get OAuth token: error getting token source from auth provider:
+state syncing error: key not found"
+and the MCP manager reported unrelated configured servers still connecting.
+The ZoracleFlux stdio process was not observed in the host process list.
+Therefore runtime registration/config validation passed, but a native host
+tools/call e2e was not claimed.
+
+No credential or paid-service flow was attempted.

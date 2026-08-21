@@ -1,0 +1,1 @@
+{"checks": {"database_parent": "pass", "package_present": "pass", "sqlite_integrity": "pass"}, "component": "zoracleflux-local-pilot", "schema_version": 1, "status": "passed"}

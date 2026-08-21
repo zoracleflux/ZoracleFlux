@@ -1,0 +1,54 @@
+name: Cloudflare reference adapter
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "cloudflare-worker-reference/**"
+      - ".github/workflows/cloudflare-reference.yml"
+  pull_request:
+    paths:
+      - "cloudflare-worker-reference/**"
+      - ".github/workflows/cloudflare-reference.yml"
+  workflow_dispatch:
+    inputs:
+      deploy:
+        description: Deploy the health-only adapter to Cloudflare (requires configured secrets)
+        required: true
+        default: false
+        type: boolean
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: "22"
+      - name: Test adapter locally
+        working-directory: cloudflare-worker-reference
+        run: npm test
+
+  deploy-reference-only:
+    if: github.event_name == 'workflow_dispatch' && inputs.deploy
+    needs: test
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment:
+      name: cloudflare-reference
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: "22"
+      - name: Deploy health-only adapter
+        uses: cloudflare/wrangler-action@v3
+        with:
+          workingDirectory: cloudflare-worker-reference
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}

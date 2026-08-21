@@ -1,0 +1,124 @@
+{
+  "cash_spend_usd": "0.00",
+  "contract": "deterministic compatibility contract; native clients are never simulated",
+  "direct_cli": {
+    "command": [
+      "C:\\Users\\ziada\\AppData\\Local\\Programs\\Python\\Python310\\python.exe",
+      "-m",
+      "zoracleflux.cli",
+      "check",
+      "--json"
+    ],
+    "cwd": "C:\\Users\\ziada\\copilot-worktrees\\ZoracleFlux\\ziadallam-psychic-bassoon",
+    "exit": 0,
+    "stderr": "",
+    "stdout": "{\n  \"command\": \"check\",\n  \"counts\": {\n    \"failed\": 0,\n    \"passed\": 13,\n    \"total\": 13\n  },\n  \"elapsed_ms\": 2.911,\n  \"evidence\": \"bounded deterministic cases; not a proof\",\n  \"model_calls\": 0,\n  \"network\": false,\n  \"relations\": [\n    {\n      \"cases\": 15,\n      \"elapsed_ms\": 0.414,\n      \"relation\": \"chunk:flatten-roundtrip\",\n      \"status\": \"passed\"\n    },\n    {\n      \"cases\": 15,\n      \"elapsed_ms\": 0.238,\n      \"relation\": \"chunk:chunk-size\",\n      \"status\": \"passed\"\n    },\n    {\n      \"cases\": 6,\n      \"elapsed_ms\": 0.052,\n      \"relation\": \"clamp:idempotent\",\n      \"status\": \"passed\"\n    },\n    {\n      \"cases\": 4,\n      \"elapsed_ms\": 0.031,\n      \"relation\": \"clamp:bounded\",\n      \"status\": \"passed\"\n    },\n    {\n      \"cases\": 4,\n      \"elapsed_ms\": 0.03,\n      \"relation\": \"clamp:endpoint-preserving\",\n      \"status\": \"passed\"\n    },\n    {\n      \"cases\": 6,\n      \"elapsed_ms\": 0.036,\n      \"relation\": \"normalize_whitespace:idempotent\",\n      \"status\": \"passed\"\n    },\n    {\n      \"cases\": 6,\n      \"elapsed_ms\": 0.021,\n      \"relation\": \"normalize_whitespace:whitespace-free\",\n      \"status\": \"passed\"\n    },\n    {\n      \"cases\": 6,\n      \"elapsed_ms\": 0.023,\n      \"relation\": \"normalize_whitespace:token-preserving\",\n      \"status\": \"passed\"\n    },\n    {\n      \"cases\": 15,\n      \"elapsed_ms\": 0.089,\n      \"relation\": \"rotate_left:composition\",\n      \"status\": \"passed\"\n    },\n    {\n      \"cases\": 25,\n      \"elapsed_ms\": 0.067,\n      \"relation\": \"rotate_left:length-preserving\",\n      \"status\": \"passed\"\n    },\n    {\n      \"cases\": 6,\n      \"elapsed_ms\": 0.025,\n      \"relation\": \"stable_unique:idempotent\",\n      \"status\": \"passed\"\n    },\n    {\n      \"cases\": 5,\n      \"elapsed_ms\": 0.059,\n      \"relation\": \"stable_unique:membership\",\n      \"status\": \"passed\"\n    },\n    {\n      \"cases\": 5,\n      \"elapsed_ms\": 0.025,\n      \"relation\": \"stable_unique:tuple-output\",\n      \"status\": \"passed\"\n    }\n  ],\n  \"schema_version\": \"1\",\n  \"status\": \"passed\",\n  \"summary\": \"13/13 declared relations passed\",\n  \"version\": \"1.0.0rc2\"\n}\n"
+  },
+  "direct_cli_failure": {
+    "command": [
+      "C:\\Users\\ziada\\AppData\\Local\\Programs\\Python\\Python310\\python.exe",
+      "-m",
+      "zoracleflux.cli",
+      "check",
+      "--source",
+      "..\\outside.py",
+      "--json"
+    ],
+    "cwd": "C:\\Users\\ziada\\copilot-worktrees\\ZoracleFlux\\ziadallam-psychic-bassoon",
+    "exit": 2,
+    "stderr": "",
+    "stdout": "{\n  \"command\": \"check\",\n  \"error\": \"ValueError: path must remain inside working directory: C:\\\\Users\\\\ziada\\\\copilot-worktrees\\\\ZoracleFlux\\\\ziadallam-psychic-bassoon\",\n  \"model_calls\": 0,\n  \"network\": false,\n  \"schema_version\": \"1\",\n  \"status\": \"error\",\n  \"version\": \"1.0.0rc2\"\n}\n"
+  },
+  "mcp": {
+    "claude_code": {
+      "assertions": [
+        "initialize",
+        "tools/list",
+        "tools/call",
+        "unknown tool failure",
+        "unknown method failure"
+      ],
+      "exit": 0,
+      "request_transcript": "{\"id\": 1, \"jsonrpc\": \"2.0\", \"method\": \"initialize\", \"params\": {\"protocolVersion\": \"2025-06-18\"}}\n{\"jsonrpc\": \"2.0\", \"method\": \"notifications/initialized\"}\n{\"id\": 2, \"jsonrpc\": \"2.0\", \"method\": \"tools/list\"}\n{\"id\": 3, \"jsonrpc\": \"2.0\", \"method\": \"tools/call\", \"params\": {\"arguments\": {}, \"name\": \"zoracleflux_check\"}}\n{\"id\": 4, \"jsonrpc\": \"2.0\", \"method\": \"tools/call\", \"params\": {\"arguments\": {}, \"name\": \"not-a-tool\"}}\n{\"id\": 5, \"jsonrpc\": \"2.0\", \"method\": \"does/not-exist\"}\n",
+      "response_transcript": "{\"id\": 1, \"jsonrpc\": \"2.0\", \"result\": {\"capabilities\": {\"tools\": {\"listChanged\": false}}, \"instructions\": \"Use zoracleflux_check for bounded local checks. No network or model calls.\", \"protocolVersion\": \"2025-06-18\", \"serverInfo\": {\"name\": \"zoracleflux\", \"version\": \"1.0.0\"}}}\n{\"id\": 2, \"jsonrpc\": \"2.0\", \"result\": {\"tools\": [{\"description\": \"Run the trusted built-in ZoracleFlux relations and return JSON evidence.\", \"inputSchema\": {\"additionalProperties\": false, \"properties\": {}, \"type\": \"object\"}, \"name\": \"zoracleflux_check\"}]}}\n{\"id\": 3, \"jsonrpc\": \"2.0\", \"result\": {\"content\": [{\"text\": \"{\\n  \\\"command\\\": \\\"check\\\",\\n  \\\"counts\\\": {\\n    \\\"failed\\\": 0,\\n    \\\"passed\\\": 13,\\n    \\\"total\\\": 13\\n  },\\n  \\\"elapsed_ms\\\": 2.522,\\n  \\\"evidence\\\": \\\"bounded deterministic cases; not a proof\\\",\\n  \\\"model_calls\\\": 0,\\n  \\\"network\\\": false,\\n  \\\"relations\\\": [\\n    {\\n      \\\"cases\\\": 15,\\n      \\\"elapsed_ms\\\": 0.245,\\n      \\\"relation\\\": \\\"chunk:flatten-roundtrip\\\",\\n      \\\"status\\\": \\\"passed\\\"\\n    },\\n    {\\n      \\\"cases\\\": 15,\\n      \\\"elapsed_ms\\\": 0.206,\\n      \\\"relation\\\": \\\"chunk:chunk-size\\\",\\n      \\\"status\\\": \\\"passed\\\"\\n    },\\n    {\\n      \\\"cases\\\": 6,\\n      \\\"elapsed_ms\\\": 0.051,\\n      \\\"relation\\\": \\\"clamp:idempotent\\\",\\n      \\\"status\\\": \\\"passed\\\"\\n    },\\n    {\\n      \\\"cases\\\": 4,\\n      \\\"elapsed_ms\\\": 0.024,\\n      \\\"relation\\\": \\\"clamp:bounded\\\",\\n      \\\"status\\\": \\\"passed\\\"\\n    },\\n    {\\n      \\\"cases\\\": 4,\\n      \\\"elapsed_ms\\\": 0.02,\\n      \\\"relation\\\": \\\"clamp:endpoint-preserving\\\",\\n      \\\"status\\\": \\\"passed\\\"\\n    },\\n    {\\n      \\\"cases\\\": 6,\\n      \\\"elapsed_ms\\\": 0.026,\\n      \\\"relation\\\": \\\"normalize_whitespace:idempotent\\\",\\n      \\\"status\\\": \\\"passed\\\"\\n    },\\n    {\\n      \\\"cases\\\": 6,\\n      \\\"elapsed_ms\\\": 0.02,\\n      \\\"relation\\\": \\\"normalize_whitespace:whitespace-free\\\",\\n      \\\"status\\\": \\\"passed\\\"\\n    },\\n    {\\n      \\\"cases\\\": 6,\\n      \\\"elapsed_ms\\\": 0.024,\\n      \\\"relation\\\": \\\"normalize_whitespace:token-preserving\\\",\\n      \\\"status\\\": \\\"passed\\\"\\n    },\\n    {\\n      \\\"cases\\\": 15,\\n      \\\"elapsed_ms\\\": 0.119,\\n      \\\"relation\\\": \\\"rotate_left:composition\\\",\\n      \\\"status\\\": \\\"passed\\\"\\n    },\\n    {\\n      \\\"cases\\\": 25,\\n      \\\"elapsed_ms\\\": 0.107,\\n      \\\"relation\\\": \\\"rotate_left:length-preserving\\\",\\n      \\\"status\\\": \\\"passed\\\"\\n    },\\n    {\\n      \\\"cases\\\": 6,\\n      \\\"elapsed_ms\\\": 0.047,\\n      \\\"relation\\\": \\\"stable_unique:idempotent\\\",\\n      \\\"status\\\": \\\"passed\\\"\\n    },\\n    {\\n      \\\"cases\\\": 5,\\n      \\\"elapsed_ms\\\": 0.102,\\n      \\\"relation\\\": \\\"stable_unique:membership\\\",\\n      \\\"status\\\": \\\"passed\\\"\\n    },\\n    {\\n      \\\"cases\\\": 5,\\n      \\\"elapsed_ms\\\": 0.038,\\n      \\\"relation\\\": \\\"stable_unique:tuple-output\\\",\\n      \\\"status\\\": \\\"passed\\\"\\n    }\\n  ],\\n  \\\"schema_version\\\": \\\"1\\\",\\n  \\\"status\\\": \\\"passed\\\",\\n  \\\"summary\\\": \\\"13/13 declared relations passed\\\",\\n  \\\"version\\\": \\\"1.0.0rc2\\\"\\n}\", \"type\": \"text\"}], \"isError\": false}}\n{\"id\": 4, \"jsonrpc\": \"2.0\", \"result\": {\"content\": [{\"text\": \"unknown tool\", \"type\": \"text\"}], \"isError\": true}}\n{\"error\": {\"code\": -32601, \"message\": \"method not found: does/not-exist\"}, \"id\": 5, \"jsonrpc\": \"2.0\"}\n",
+      "server": "claude-code\\mcp_server.py",
+      "stderr": ""
+    },
+    "codex": {
+      "assertions": [
+        "initialize",
+        "tools/list",
+        "tools/call",
+        "unknown tool failure",
+        "unknown method failure"
+      ],
+      "exit": 0,
+      "request_transcript": "{\"id\": 1, \"jsonrpc\": \"2.0\", \"method\": \"initialize\", \"params\": {\"protocolVersion\": \"2025-06-18\"}}\n{\"jsonrpc\": \"2.0\", \"method\": \"notifications/initialized\"}\n{\"id\": 2, \"jsonrpc\": \"2.0\", \"method\": \"tools/list\"}\n{\"id\": 3, \"jsonrpc\": \"2.0\", \"method\": \"tools/call\", \"params\": {\"arguments\": {}, \"name\": \"zoracleflux_check\"}}\n{\"id\": 4, \"jsonrpc\": \"2.0\", \"method\": \"tools/call\", \"params\": {\"arguments\": {}, \"name\": \"not-a-tool\"}}\n{\"id\": 5, \"jsonrpc\": \"2.0\", \"method\": \"does/not-exist\"}\n",
+      "response_transcript": "{\"id\": 1, \"jsonrpc\": \"2.0\", \"result\": {\"capabilities\": {\"tools\": {\"listChanged\": false}}, \"instructions\": \"Use zoracleflux_check for bounded local checks. No network or model calls.\", \"protocolVersion\": \"2025-06-18\", \"serverInfo\": {\"name\": \"zoracleflux\", \"version\": \"1.0.0\"}}}\n{\"id\": 2, \"jsonrpc\": \"2.0\", \"result\": {\"tools\": [{\"description\": \"Run the trusted built-in ZoracleFlux relations and return JSON evidence.\", \"inputSchema\": {\"additionalProperties\": false, \"properties\": {}, \"type\": \"object\"}, \"name\": \"zoracleflux_check\"}]}}\n{\"id\": 3, \"jsonrpc\": \"2.0\", \"result\": {\"content\": [{\"text\": \"{\\n  \\\"command\\\": \\\"check\\\",\\n  \\\"counts\\\": {\\n    \\\"failed\\\": 0,\\n    \\\"passed\\\": 13,\\n    \\\"total\\\": 13\\n  },\\n  \\\"elapsed_ms\\\": 2.936,\\n  \\\"evidence\\\": \\\"bounded deterministic cases; not a proof\\\",\\n  \\\"model_calls\\\": 0,\\n  \\\"network\\\": false,\\n  \\\"relations\\\": [\\n    {\\n      \\\"cases\\\": 15,\\n      \\\"elapsed_ms\\\": 0.255,\\n      \\\"relation\\\": \\\"chunk:flatten-roundtrip\\\",\\n      \\\"status\\\": \\\"passed\\\"\\n    },\\n    {\\n      \\\"cases\\\": 15,\\n      \\\"elapsed_ms\\\": 0.204,\\n      \\\"relation\\\": \\\"chunk:chunk-size\\\",\\n      \\\"status\\\": \\\"passed\\\"\\n    },\\n    {\\n      \\\"cases\\\": 6,\\n      \\\"elapsed_ms\\\": 0.055,\\n      \\\"relation\\\": \\\"clamp:idempotent\\\",\\n      \\\"status\\\": \\\"passed\\\"\\n    },\\n    {\\n      \\\"cases\\\": 4,\\n      \\\"elapsed_ms\\\": 0.03,\\n      \\\"relation\\\": \\\"clamp:bounded\\\",\\n      \\\"status\\\": \\\"passed\\\"\\n    },\\n    {\\n      \\\"cases\\\": 4,\\n      \\\"elapsed_ms\\\": 0.032,\\n      \\\"relation\\\": \\\"clamp:endpoint-preserving\\\",\\n      \\\"status\\\": \\\"passed\\\"\\n    },\\n    {\\n      \\\"cases\\\": 6,\\n      \\\"elapsed_ms\\\": 0.044,\\n      \\\"relation\\\": \\\"normalize_whitespace:idempotent\\\",\\n      \\\"status\\\": \\\"passed\\\"\\n    },\\n    {\\n      \\\"cases\\\": 6,\\n      \\\"elapsed_ms\\\": 0.034,\\n      \\\"relation\\\": \\\"normalize_whitespace:whitespace-free\\\",\\n      \\\"status\\\": \\\"passed\\\"\\n    },\\n    {\\n      \\\"cases\\\": 6,\\n      \\\"elapsed_ms\\\": 0.038,\\n      \\\"relation\\\": \\\"normalize_whitespace:token-preserving\\\",\\n      \\\"status\\\": \\\"passed\\\"\\n    },\\n    {\\n      \\\"cases\\\": 15,\\n      \\\"elapsed_ms\\\": 0.129,\\n      \\\"relation\\\": \\\"rotate_left:composition\\\",\\n      \\\"status\\\": \\\"passed\\\"\\n    },\\n    {\\n      \\\"cases\\\": 25,\\n      \\\"elapsed_ms\\\": 0.118,\\n      \\\"relation\\\": \\\"rotate_left:length-preserving\\\",\\n      \\\"status\\\": \\\"passed\\\"\\n    },\\n    {\\n      \\\"cases\\\": 6,\\n      \\\"elapsed_ms\\\": 0.042,\\n      \\\"relation\\\": \\\"stable_unique:idempotent\\\",\\n      \\\"status\\\": \\\"passed\\\"\\n    },\\n    {\\n      \\\"cases\\\": 5,\\n      \\\"elapsed_ms\\\": 0.065,\\n      \\\"relation\\\": \\\"stable_unique:membership\\\",\\n      \\\"status\\\": \\\"passed\\\"\\n    },\\n    {\\n      \\\"cases\\\": 5,\\n      \\\"elapsed_ms\\\": 0.041,\\n      \\\"relation\\\": \\\"stable_unique:tuple-output\\\",\\n      \\\"status\\\": \\\"passed\\\"\\n    }\\n  ],\\n  \\\"schema_version\\\": \\\"1\\\",\\n  \\\"status\\\": \\\"passed\\\",\\n  \\\"summary\\\": \\\"13/13 declared relations passed\\\",\\n  \\\"version\\\": \\\"1.0.0rc2\\\"\\n}\", \"type\": \"text\"}], \"isError\": false}}\n{\"id\": 4, \"jsonrpc\": \"2.0\", \"result\": {\"content\": [{\"text\": \"unknown tool\", \"type\": \"text\"}], \"isError\": true}}\n{\"error\": {\"code\": -32601, \"message\": \"method not found: does/not-exist\"}, \"id\": 5, \"jsonrpc\": \"2.0\"}\n",
+      "server": "codex\\mcp_server.py",
+      "stderr": ""
+    }
+  },
+  "model_calls": 0,
+  "native_runtime": {
+    "claude_code": "UNVERIFIED",
+    "codex": "UNVERIFIED"
+  },
+  "network": false,
+  "versions": {
+    "claude": {
+      "command": [
+        "claude",
+        "--version"
+      ],
+      "literal_output": "executable not found on PATH",
+      "status": "UNAVAILABLE"
+    },
+    "codex": {
+      "command": [
+        "codex",
+        "--version"
+      ],
+      "literal_output": "executable not found on PATH",
+      "status": "UNAVAILABLE"
+    },
+    "node": {
+      "command": [
+        "node",
+        "--version"
+      ],
+      "exit": 0,
+      "stderr": "",
+      "stdout": "v22.12.0\n"
+    },
+    "npm": {
+      "command": [
+        "npm.cmd",
+        "--version"
+      ],
+      "exit": 0,
+      "stderr": "",
+      "stdout": "10.9.0\n"
+    },
+    "python": {
+      "command": [
+        "C:\\Users\\ziada\\AppData\\Local\\Programs\\Python\\Python310\\python.exe",
+        "--version"
+      ],
+      "exit": 0,
+      "stderr": "",
+      "stdout": "Python 3.10.1\n"
+    },
+    "zoracleflux": {
+      "command": [
+        "C:\\Users\\ziada\\AppData\\Local\\Programs\\Python\\Python310\\python.exe",
+        "-m",
+        "zoracleflux.cli",
+        "--version"
+      ],
+      "exit": 0,
+      "stderr": "",
+      "stdout": "1.0.0rc2\n"
+    }
+  }
+}

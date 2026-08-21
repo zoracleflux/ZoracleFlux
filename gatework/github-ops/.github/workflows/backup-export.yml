@@ -1,0 +1,39 @@
+name: Backup and export
+
+on:
+  schedule:
+    - cron: "41 2 * * 0"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: read
+  discussions: read
+  actions: read
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.10"
+      - name: Export repository refs and metadata
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GITHUB_TOKEN: ${{ github.token }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_API_URL: ${{ github.api_url }}
+        run: python scripts/github_backup_export.py --output backup
+      - name: Upload export staging copy
+        uses: actions/upload-artifact@v4
+        with:
+          name: github-export-${{ github.repository }}-${{ github.run_id }}
+          path: backup
+          retention-days: 7
+      # For production, add an external object-store upload here using OIDC.
+      # Restrict the cloud role to this workflow, repository, ref, and bucket.

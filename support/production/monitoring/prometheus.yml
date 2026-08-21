@@ -1,0 +1,10 @@
+# Optional local file-scrape example. It is not a hosted monitoring service.
+global:
+  scrape_interval: 30s
+scrape_configs:
+  - job_name: zoracleflux-local-file
+    static_configs:
+      - targets: ["localhost"]
+    metrics_path: /metrics
+    # A local collector must expose evidence/metrics.prom; no listener is
+    # shipped by this bundle and no data leaves the workstation.

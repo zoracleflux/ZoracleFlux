@@ -1,0 +1,7 @@
+{
+  "name": "zoracleflux-codex-fallback",
+  "protocol": "direct-cli",
+  "command": ["zoracleflux", "check", "--json"],
+  "network": false,
+  "tested_client": "not installed; direct CLI tested"
+}

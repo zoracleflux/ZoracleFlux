@@ -1,0 +1,68 @@
+ZoracleFlux 1.0.0rc2 local signing transcript
+Recorded: 2026-08-21
+
+The candidate is a sibling directory of this directory:
+  ..\..\final-release-candidate
+
+Tool discovery:
+  python --version
+  pip --version
+  ssh -V
+  ssh-keygen -Y sign -f <key> -n file <artifact>
+  ssh-keygen -Y verify -f <allowed-signers> -I zoracleflux-release -n file -s <signature> <artifact-bytes-on-stdin>
+
+Observed versions:
+  Python 3.10.1
+  pip 24.3.1
+  OpenSSH_for_Windows_9.5p2, LibreSSL 3.8.2
+  Windows PowerShell 5.1.26100.8875
+
+Executed key generation (the private key was deleted after signing):
+  cmd.exe /c "ssh-keygen -t ed25519 -C "zoracleflux local release verification (non-production)" -f "<signing>\zoracleflux-local-ed25519" -N "" -q"
+
+Executed signing shape for each file:
+  ssh-keygen -Y sign -f "<signing>\zoracleflux-local-ed25519" -n file "<candidate>\dist\zoracleflux-1.0.0rc2-py3-none-any.whl"
+  ssh-keygen -Y sign -f "<signing>\zoracleflux-local-ed25519" -n file "<candidate>\dist\zoracleflux-1.0.0rc2.tar.gz"
+  ssh-keygen -Y sign -f "<signing>\zoracleflux-local-ed25519" -n file "<candidate>\SBOM.json"
+  ssh-keygen -Y sign -f "<signing>\zoracleflux-local-ed25519" -n file "<candidate>\ARTIFACT_MANIFEST.sha256"
+  Move-Item "<candidate>\<file>.sig" "<signing>\signatures\<label>.sig"
+  Remove-Item "<signing>\zoracleflux-local-ed25519"
+
+Equivalent rerun template (requires an externally supplied private key):
+  $candidate = (Resolve-Path "..\..\final-release-candidate").Path
+  $signing = (Resolve-Path ".").Path
+  $key = "<offline-private-key-path>"
+  $files = @(
+    @("wheel", (Join-Path $candidate "dist\zoracleflux-1.0.0rc2-py3-none-any.whl")),
+    @("sdist", (Join-Path $candidate "dist\zoracleflux-1.0.0rc2.tar.gz")),
+    @("sbom", (Join-Path $candidate "SBOM.json")),
+    @("manifest", (Join-Path $candidate "ARTIFACT_MANIFEST.sha256"))
+  )
+  foreach ($item in $files) {
+    & ssh-keygen -Y sign -f $key -n file $item[1]
+    Move-Item -Force ($item[1] + ".sig") (Join-Path $signing ("signatures\" + $item[0] + ".sig"))
+  }
+
+Observed signing stdout (each command):
+  Signing file <absolute candidate path>
+  Write signature to <absolute candidate path>.sig
+
+Executed passing detached-signature check:
+  python verify_signatures.py --signatures-only
+  Exit code: 0
+  Literal stdout is in VERIFY_SIGNATURES_ONLY_OUTPUT.txt.
+
+Executed full check:
+  python verify_signatures.py
+  Exit code: 1 (intentional finding)
+  All four signatures pass. The pre-existing candidate manifest has three
+  stale digest entries (.zoracleflux\audit.jsonl, .zoracleflux\pilot.sqlite3,
+  evaluation\results.json); see VERIFY_OUTPUT.txt. The candidate files were
+  not changed because this task is confined to support\signing.
+
+Direct SSH verification reads the artifact bytes on stdin:
+  cmd.exe /c "ssh-keygen -Y verify -f "<signing>\allowed_signers" -I zoracleflux-release -n file -s "<signing>\signatures\wheel.sig" < "<candidate>\dist\zoracleflux-1.0.0rc2-py3-none-any.whl""
+  (repeat with sdist.sig, sbom.sig, and manifest.sig)
+
+No private key is present in this directory. The public key and allowed
+signers file are the complete local trust anchor.

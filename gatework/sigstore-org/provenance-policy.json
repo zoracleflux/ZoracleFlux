@@ -1,0 +1,35 @@
+{
+  "name": "zoracleflux organization release provenance policy",
+  "version": 1,
+  "required": {
+    "issuer": "https://token.actions.githubusercontent.com",
+    "repository": "ORG/REPO",
+    "workflow": ".github/workflows/release-signing.yml",
+    "ref_policy": "refs/tags/v* for published releases; refs/heads/main only for rehearsals",
+    "environment": "release-signing",
+    "artifacts": [
+      "dist/*.whl",
+      "dist/*.tar.gz",
+      "SBOM.json",
+      "ARTIFACT_MANIFEST.sha256"
+    ],
+    "github_artifact_attestation": "required when repository plan/visibility supports it; otherwise record unavailable",
+    "attestation_availability": "public repositories use GitHub's public Sigstore path; private repositories use GitHub's Sigstore path without public Rekor",
+    "rekor_transparency_entry": true,
+    "fulcio_certificate": true,
+    "protected_workflow_commit": true
+  },
+  "verification": {
+    "sigstore_python": "sigstore verify github with exact repository, certificate identity, ref, and optional commit SHA",
+    "cosign": "cosign verify-blob --bundle FILE.sigstore.json --certificate-identity EXACT --certificate-oidc-issuer https://token.actions.githubusercontent.com",
+    "github": "gh attestation verify FILE --repo ORG/REPO --signer-workflow ORG/REPO/.github/workflows/release-signing.yml",
+    "pypi_optional": "pypi-attestations verify pypi --repository https://github.com/ORG/REPO DIRECT_PYPI_FILE_URL"
+  },
+  "not_satisfied_by": [
+    "a local key or a self-generated certificate",
+    "a missing bundle",
+    "an identity regex that matches any repository in the organization",
+    "a workflow run from a pull request or unprotected branch",
+    "a GitHub organization name without repository and workflow constraints"
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "cash_spend_usd": 0.0,
+  "database": ".zoracleflux\\pilot.sqlite3",
+  "elapsed_ms": 21.272,
+  "runs": [
+    {
+      "evidence": "synthetic fixture; bounded deterministic cases; not a proof",
+      "model_calls": 0,
+      "network_calls": 0,
+      "passed": 13,
+      "relations": 13,
+      "run_id": "60970b6dc2404cad9a15ceb0ce52bfdd",
+      "schema_version": "1",
+      "status": "passed",
+      "version": "1.0.0rc2"
+    },
+    {
+      "evidence": "synthetic fixture; bounded deterministic cases; not a proof",
+      "model_calls": 0,
+      "network_calls": 0,
+      "passed": 13,
+      "relations": 13,
+      "run_id": "3a16417003c5480e84005fa1e89c2db8",
+      "schema_version": "1",
+      "status": "passed",
+      "version": "1.0.0rc2"
+    }
+  ],
+  "schema_version": "1",
+  "status": "passed",
+  "version": "1.0.0rc2"
+}

@@ -1,0 +1,1 @@
+{"checks": {"audit_allowlist": "pass", "backup_path_traversal_rejected": "pass", "health_missing_db_is_safe": "pass", "metrics_no_network": "pass", "overlay_static_boundary": "pass"}, "schema_version": 1, "status": "passed"}

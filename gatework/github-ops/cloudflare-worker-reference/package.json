@@ -1,0 +1,8 @@
+{
+  "name": "zoracleflux-health-adapter-reference",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node test.mjs"
+  }
+}

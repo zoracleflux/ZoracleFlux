@@ -1,0 +1,96 @@
+{
+  "command": "check",
+  "counts": {
+    "failed": 0,
+    "passed": 13,
+    "total": 13
+  },
+  "elapsed_ms": 1.883,
+  "evidence": "bounded deterministic cases; not a proof",
+  "model_calls": 0,
+  "network": false,
+  "relations": [
+    {
+      "cases": 15,
+      "elapsed_ms": 0.202,
+      "relation": "chunk:flatten-roundtrip",
+      "status": "passed"
+    },
+    {
+      "cases": 15,
+      "elapsed_ms": 0.17,
+      "relation": "chunk:chunk-size",
+      "status": "passed"
+    },
+    {
+      "cases": 6,
+      "elapsed_ms": 0.036,
+      "relation": "clamp:idempotent",
+      "status": "passed"
+    },
+    {
+      "cases": 4,
+      "elapsed_ms": 0.02,
+      "relation": "clamp:bounded",
+      "status": "passed"
+    },
+    {
+      "cases": 4,
+      "elapsed_ms": 0.019,
+      "relation": "clamp:endpoint-preserving",
+      "status": "passed"
+    },
+    {
+      "cases": 6,
+      "elapsed_ms": 0.025,
+      "relation": "normalize_whitespace:idempotent",
+      "status": "passed"
+    },
+    {
+      "cases": 6,
+      "elapsed_ms": 0.02,
+      "relation": "normalize_whitespace:whitespace-free",
+      "status": "passed"
+    },
+    {
+      "cases": 6,
+      "elapsed_ms": 0.022,
+      "relation": "normalize_whitespace:token-preserving",
+      "status": "passed"
+    },
+    {
+      "cases": 15,
+      "elapsed_ms": 0.079,
+      "relation": "rotate_left:composition",
+      "status": "passed"
+    },
+    {
+      "cases": 25,
+      "elapsed_ms": 0.066,
+      "relation": "rotate_left:length-preserving",
+      "status": "passed"
+    },
+    {
+      "cases": 6,
+      "elapsed_ms": 0.025,
+      "relation": "stable_unique:idempotent",
+      "status": "passed"
+    },
+    {
+      "cases": 5,
+      "elapsed_ms": 0.043,
+      "relation": "stable_unique:membership",
+      "status": "passed"
+    },
+    {
+      "cases": 5,
+      "elapsed_ms": 0.023,
+      "relation": "stable_unique:tuple-output",
+      "status": "passed"
+    }
+  ],
+  "schema_version": "1",
+  "status": "passed",
+  "summary": "13/13 declared relations passed",
+  "version": "1.0.0rc2"
+}

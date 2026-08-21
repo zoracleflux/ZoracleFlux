@@ -1,0 +1,38 @@
+{
+  "name": "zoracleflux-antigravity",
+  "adapter_version": "1.0.0",
+  "transport": "stdio",
+  "protocol": {
+    "name": "Model Context Protocol",
+    "supported_versions": [
+      "2025-06-18",
+      "2025-03-26",
+      "2024-11-05"
+    ],
+    "methods": [
+      "initialize",
+      "notifications/initialized",
+      "ping",
+      "tools/list",
+      "tools/call"
+    ]
+  },
+  "tools": [
+    "zoracleflux_check",
+    "zoracleflux_doctor"
+  ],
+  "safety": {
+    "network": false,
+    "model_calls": 0,
+    "credentials_required": false,
+    "writes_outside_support_directory": false
+  },
+  "platform_mcp_supported": true,
+  "native_client_runtime": {
+    "product": "Antigravity IDE",
+    "version": "1.107.0",
+    "cli_wrapper": "antigravity-ide.cmd",
+    "registration_smoke_verified": true,
+    "native_tool_call_verified": false
+  }
+}

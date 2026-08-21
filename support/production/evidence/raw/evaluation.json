@@ -1,0 +1,21 @@
+{
+  "cash_spend_usd": 0.0,
+  "elapsed_ms": 10.988,
+  "false_failure_rate": 0.0,
+  "fixture_sha256": "f9d79c90f364185aa5b41f08f320098fe4dbe9006afb46e6af6c421927414e2c",
+  "heldout_static_declarations": 0,
+  "mode": "offline-deterministic",
+  "model_calls": 0,
+  "mutation_killed": 5,
+  "mutation_score": 1.0,
+  "mutation_total": 5,
+  "network_calls": 0,
+  "python": "3.10.1",
+  "relation_failures": [],
+  "relation_passed": 13,
+  "relation_total": 13,
+  "reproducibility": "Run this script from a clean install; no random seed or network input.",
+  "schema_version": "1",
+  "unknown_tag_negative_fixture_present": true,
+  "version": "1.0.0rc2"
+}

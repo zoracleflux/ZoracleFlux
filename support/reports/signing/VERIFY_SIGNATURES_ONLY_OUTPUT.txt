@@ -1,0 +1,8 @@
+Good "file" signature for zoracleflux-release with ED25519 key SHA256:TwyPworhpQ2AJG0hF8jr3PXF/FIY+Cnm9a7CwVtjKF4
+wheel signature: PASS
+Good "file" signature for zoracleflux-release with ED25519 key SHA256:TwyPworhpQ2AJG0hF8jr3PXF/FIY+Cnm9a7CwVtjKF4
+sdist signature: PASS
+Good "file" signature for zoracleflux-release with ED25519 key SHA256:TwyPworhpQ2AJG0hF8jr3PXF/FIY+Cnm9a7CwVtjKF4
+sbom signature: PASS
+Good "file" signature for zoracleflux-release with ED25519 key SHA256:TwyPworhpQ2AJG0hF8jr3PXF/FIY+Cnm9a7CwVtjKF4
+manifest signature: PASS

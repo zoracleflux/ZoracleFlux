@@ -1,0 +1,18 @@
+id,domain,requirement_or_objective,control_or_document,evidence_expected,current_status,owner,reviewer_or_gate,next_review
+L-01,legal,Identify contracting entity and jurisdictions,Entity and jurisdiction register,Formation record; counsel scope memo,Blocked,[LEGAL_OWNER],Qualified counsel before publication,2026-09-04
+L-02,privacy,Transparency and lawful processing,templates/PRIVACY_NOTICE.md,Approved notice; data inventory; ROPA,Designed,[PRIVACY_OWNER],Counsel,2026-09-04
+L-03,privacy,Processor terms and assistance,templates/DPA.md,Signed DPA; subprocessors; transfer annex,Blocked,[LEGAL_OWNER],Counsel + customer,2026-09-11
+L-04,privacy,Retention and deletion,templates/DATA_RETENTION_DELETION.md,Deletion tickets; restore/backup exception test,Designed,[DATA_OWNER],Privacy counsel,2026-09-11
+L-05,contract,Commercial boundaries,templates/TERMS_AND_CUSTOMER_BOUNDARIES.md,Signed terms/order form; OSS notices,Blocked,[COMMERCIAL_OWNER],Counsel,2026-09-11
+S-01,security,Governance and risk,templates/SECURITY_POLICY.md,Risk register; owner approvals; review log,Designed,[SECURITY_OWNER],Executive sponsor,2026-09-18
+S-02,security,Incident handling,templates/INCIDENT_RESPONSE.md,Tabletop; incident tickets; notification decision,Designed,[IR_OWNER],Counsel for notifications,2026-09-18
+S-03,security,Vulnerability intake and remediation,templates/VULNERABILITY_DISCLOSURE.md,Mailbox test; advisories; SLA-like targets,Blocked,[SECURITY_OWNER],Independent security reviewer,2026-09-25
+S-04,security,Access/secrets/SDLC,RC3 docs/SECURITY.md plus control records,MFA/access reviews; PR approvals; rotation evidence,Partial/local only,[SECURITY_OWNER],Independent security reviewer,2026-09-25
+S-05,security,Backup/recovery,RC3 support/production/BACKUP_RESTORE_RUNBOOK.md,Off-host encrypted backup; RPO/RTO exercise,Local only,[OPS_OWNER],DR reviewer,2026-10-02
+A-01,availability,Define measurement point and SLO,tools/synthetic_uptime.py + templates/SLA_TEMPLATE.md,Real endpoint checks; immutable monthly reports,Blocked,[OPS_OWNER],Operations + customer contract,2026-10-02
+A-02,availability,Support and on-call,templates/SUPPORT_ONCALL.md,Named rota; paging test; ticket records,Blocked,[SUPPORT_OWNER],Operations sponsor,2026-10-02
+A-03,availability,Service credits and remedies,SLA template only,Signed SLA; approved credit ledger,Blocked,[COMMERCIAL_OWNER],Counsel + customer,2026-10-09
+C-01,assurance,SOC 2 readiness,templates/SOC2_ISO_READINESS.md,System description; control tests; CPA engagement,Self-assessment only, [SECURITY_OWNER],CPA firm,2026-10-16
+C-02,assurance,ISO/IEC 27001 readiness,templates/SOC2_ISO_READINESS.md,ISMS; SoA; internal audit; accredited certificate,Self-assessment only,[SECURITY_OWNER],Accredited certification body,2026-10-16
+E-01,evidence,Reproducible local checks,evidence/LOCAL_CHECKS.md,Literal output; interpreter version; SHA-256,Implemented/local,[OPS_OWNER],Peer review,2026-08-28
+E-02,evidence,Change integrity,RC3 manifests and bundle hash,Hash manifest; signed release after funded setup,Partial/local only,[RELEASE_OWNER],Release approver,2026-08-28

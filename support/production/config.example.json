@@ -1,0 +1,19 @@
+{
+  "environment": "local-pilot",
+  "network": {
+    "outbound": false,
+    "listen": false
+  },
+  "data_dir": ".zoracleflux",
+  "database": ".zoracleflux/pilot.sqlite3",
+  "audit_log": ".zoracleflux/audit.jsonl",
+  "retention_days": 30,
+  "secrets": {
+    "provider": "none",
+    "required_for_pilot": false
+  },
+  "limits": {
+    "max_runs": 100,
+    "timeout_seconds": 30
+  }
+}

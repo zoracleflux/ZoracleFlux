@@ -1,0 +1,10 @@
+﻿# Adapter verification matrix — RC3
+
+| Surface | Status | Evidence |
+|---|---|---|
+| Direct `zoracleflux` / `oracleforge` CLI | verified | clean install; 13/13 check |
+| Claude Code | fallback verified; native unverified | `claude-code\`, `harness\compatibility-contract.json`; `claude --version` unavailable |
+| Codex | fallback verified; native unverified | `codex\`, `harness\compatibility-contract.json`; `codex --version` unavailable |
+| Antigravity platform/MCP registration | verified | `support\antigravity\runtime-smoke.txt`, `verification-output.txt`; IDE 1.107.0 |
+| Antigravity native authenticated tool call | unverified here | isolated host account-state blocker; exact user steps in report |
+| Production Compose | unverified locally | Docker unavailable; local pilot checks pass |

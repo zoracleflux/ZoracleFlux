@@ -1,0 +1,6 @@
+name = "zoracleflux-health-adapter"
+main = "src/index.js"
+compatibility_date = "2026-08-21"
+
+# No account ID, route, zone, database, or secret is committed here.
+# Configure those out of band only after an owner approves deployment.

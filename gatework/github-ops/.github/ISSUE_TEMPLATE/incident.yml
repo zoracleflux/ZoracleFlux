@@ -1,0 +1,41 @@
+name: Production incident
+description: Track an outage, suspected compromise, or material operational event.
+title: "[incident][SEV-] "
+labels: ["incident", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: Do not put credentials, personal data, or exploit details in this issue.
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      options: [SEV-1, SEV-2, SEV-3]
+    validations:
+      required: true
+  - type: input
+    id: commander
+    attributes:
+      label: Incident commander
+    validations:
+      required: true
+  - type: input
+    id: started
+    attributes:
+      label: Start time (UTC)
+    validations:
+      required: true
+  - type: textarea
+    id: impact
+    attributes:
+      label: User impact and scope
+    validations:
+      required: true
+  - type: textarea
+    id: timeline
+    attributes:
+      label: Timeline and actions
+  - type: textarea
+    id: followup
+    attributes:
+      label: Recovery and follow-up owners

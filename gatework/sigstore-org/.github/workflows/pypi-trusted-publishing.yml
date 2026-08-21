@@ -1,0 +1,36 @@
+name: Publish ZoracleFlux with PyPI Trusted Publishing
+
+on:
+  workflow_dispatch:
+
+# This optional path is for a real PyPI project configured with a Trusted
+# Publisher. It has no API token or repository secret. It does not replace the
+# four-file Fulcio/Rekor workflow; PyPI covers the wheel and sdist only.
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment:
+      name: pypi-release
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: "3.10"
+
+      - name: Build distributions
+        run: |
+          python -m pip install --disable-pip-version-check "build==1.5.0"
+          python -m build --wheel --sdist
+
+      - name: Publish with PyPI Trusted Publishing and attestations
+        uses: pypa/gh-action-pypi-publish@7f25271a4aa483500f742f9492b2ab5648d61011 # v1.12.4
+        with:
+          attestations: true

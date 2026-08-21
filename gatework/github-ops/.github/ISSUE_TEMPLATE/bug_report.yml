@@ -1,0 +1,35 @@
+name: Bug report
+description: Report a reproducible ZoracleFlux defect.
+title: "[bug] "
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: Never include secrets, customer data, or private logs.
+  - type: input
+    id: version
+    attributes:
+      label: Version or commit
+      placeholder: 1.0.0rc2 / full SHA
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction
+      description: Commands and the smallest safe input that reproduces the issue.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected and actual behavior
+    validations:
+      required: true
+  - type: dropdown
+    id: environment
+    attributes:
+      label: Environment
+      options: [local-pilot, GitHub Actions, external-runtime]
+    validations:
+      required: true

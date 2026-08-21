@@ -1,0 +1,16 @@
+evidence_id,artifact_source,control_or_framework,minimum_fields,acceptance_and_limit,status
+GH-PR,GitHub protected PR and review record,ISO27001-A.8.32;SOC2-CC8;NIST-Protect,commit SHA;reviewers;tests;scope;timestamp,Peer approval and immutable ref; proves change review only,designed
+GH-CI,GitHub Actions run and workflow file,ISO27001-A.8.25;SOC2-CC8;SLSA,run ID;workflow SHA;permissions;logs;artifact digest,Reproducible check; green CI is not a security/audit opinion,designed
+GH-DEP,Dependabot/advisory and remediation issue,ISO27001-A.8.8;SOC2-CC7;NIST-Identify,package;CVE;severity;owner;due date;fix verification,Complete triage evidence; does not prove no vulnerabilities,designed
+GH-SCORE,OpenSSF Scorecard result and badge record,OpenSSF Scorecard,repo commit;tool version;checks;score;timestamp,OSS security signal only; no legal/certification claim,planned
+GH-SLSA,SLSA provenance/attestation, SLSA build provenance,artifact digest;builder;source;run;predicate;level,Supply-chain evidence only; no uptime or SLA,planned
+UP-RAW,Real external uptime monitor export,A-01;SOC2-A1;NIST-Detect,endpoint;probe regions;UTC timestamps;HTTP result;latency;monitor identity,Required for any real availability claim; synthetic/local logs are excluded,blocked
+UP-SYN,tools/synthetic_uptime.py output,A-01 test harness,synthetic marker;schema;sample;timestamp;status;hash,Tool regression fixture only; explicitly NON_PRODUCTION_EVIDENCE_ONLY,implemented/local
+INC-TKT,Private incident issue/ticket,S-02;SOC2-CC7;NIST-Respond,incident ID;severity;timeline;scope;decisions;approvals;hash,Restricted evidence with counsel/privacy handling; not public postmortem by default,designed
+INC-EX,Tabletop record,S-02;NIST-Respond/Recover,scenario;participants;injects;decisions;actions;owners;due dates,Exercises process; does not prove a real incident was handled,planned
+SLA-DRAFT,templates/SLA_TEMPLATE.md,A-03;SOC2-A1,entity;service boundary;measurement;exclusions;support;remedies;signatures,Placeholder only; no SLA until bilateral signature and live service,implemented/local
+SLA-MONTHLY,Signed SLA monthly report,A-01/A-03;SOC2-A1,window;eligible minutes;downtime;formula;raw export;hash;approver,Contract evidence only after real monitoring and effective contract,blocked
+PRIV-NOTICE,templates/PRIVACY_NOTICE.md,L-02;GDPR arts.13-14;SOC2-P,entity;categories;purpose/basis;recipients;retention;rights;version,Template until counsel publishes for actual processing,implemented/local
+DPA-SIGNED,Executed DPA and schedules,L-03;GDPR art.28;SOC2-P,parties;roles;instructions;data;subprocessors;security;delete/return;signatures,Only signed customer-specific DPA establishes contractual terms,blocked
+RET-LEDGER,Deletion/retention ledger,L-04;GDPR arts.5/17/28;FTC,request ID;authority;systems;timestamp;method;exception;verification,Operational evidence subject to legal hold and counsel-approved schedule,designed
+IR-NOTICE,Incident notification decision log,S-02;GDPR arts.33-34,awareness time;facts;data risk;recipient;legal basis;decision owner;sent time,Counsel decides statutory/customer notices; no invented deadline,designed

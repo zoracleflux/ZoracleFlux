@@ -1,0 +1,13 @@
+67142421933973cbc91890eafcb9a6c8345bcc9f578671359a7d9c96ffdc7d8b  RC3\dist\zoracleflux-1.0.0rc2-py3-none-any.whl
+b27f6ce1335c808db2c9181715af198962ea99f17ddeb8d694f87b50618d33e6  RC3\dist\zoracleflux-1.0.0rc2.tar.gz
+ee9ccf8abb4a7e7945357fa25a937f2fdee550177face3ee0842b6931625f6bb  RC3\SBOM.json
+64bfddf5c0c87a55cbca21da4fcbdac69e37b4af2a06eea074beb596a294e2a1  RC3\ARTIFACT_MANIFEST.sha256
+972194c9dfcdde7e6f5850bea6a5204afe53b4ebeba911c86429a7ba6d157e2c  fallback\zoracleflux-release-signing-key.pub
+958ff4ead00a831d53c104c57a3ceeaffe75fd43f6c68f868f66f166a19d2b6d  fallback\allowed_signers
+74c342a6ef51d476568fdea36351117a08f8e94ac8f40c90101d3dd2a3dfacbc  fallback\signatures\manifest.sig
+8a787fa6ee52b124589eb7f7ed62c59e5b3091f6e7b74b3aa4ad76f5e69d7254  fallback\signatures\sbom.sig
+fd19d6126fae394abfdc1f3680984d98b6fbad5fae32a5a3886922c3a393b2e9  fallback\signatures\sdist.sig
+fa11ff7ceeb3f7c4ecf178533d77e355e0cb7dda750e1356e5e62bf3cda88384  fallback\signatures\wheel.sig
+
+The RC3 relative paths are descriptive only; RC3 itself is outside this
+gatework and was not modified.

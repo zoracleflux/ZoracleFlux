@@ -1,0 +1,10 @@
+Literal stdout from the four executed ssh-keygen signing commands:
+
+Signing file C:\Users\ziada\.copilot\chats\70b7f34f-e807-4a08-ae86-c1745773252f\artifacts\zoracleflux\final-release-candidate\dist\zoracleflux-1.0.0rc2-py3-none-any.whl
+Write signature to C:\Users\ziada\.copilot\chats\70b7f34f-e807-4a08-ae86-c1745773252f\artifacts\zoracleflux\final-release-candidate\dist\zoracleflux-1.0.0rc2-py3-none-any.whl.sig
+Signing file C:\Users\ziada\.copilot\chats\70b7f34f-e807-4a08-ae86-c1745773252f\artifacts\zoracleflux\final-release-candidate\dist\zoracleflux-1.0.0rc2.tar.gz
+Write signature to C:\Users\ziada\.copilot\chats\70b7f34f-e807-4a08-ae86-c1745773252f\artifacts\zoracleflux\final-release-candidate\dist\zoracleflux-1.0.0rc2.tar.gz.sig
+Signing file C:\Users\ziada\.copilot\chats\70b7f34f-e807-4a08-ae86-c1745773252f\artifacts\zoracleflux\final-release-candidate\SBOM.json
+Write signature to C:\Users\ziada\.copilot\chats\70b7f34f-e807-4a08-ae86-c1745773252f\artifacts\zoracleflux\final-release-candidate\SBOM.json.sig
+Signing file C:\Users\ziada\.copilot\chats\70b7f34f-e807-4a08-ae86-c1745773252f\artifacts\zoracleflux\final-release-candidate\ARTIFACT_MANIFEST.sha256
+Write signature to C:\Users\ziada\.copilot\chats\70b7f34f-e807-4a08-ae86-c1745773252f\artifacts\zoracleflux\final-release-candidate\ARTIFACT_MANIFEST.sha256.sig

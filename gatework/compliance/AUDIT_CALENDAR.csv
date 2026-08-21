@@ -1,0 +1,11 @@
+cadence,activity,owner,artifact,acceptance,first_due,status
+per change,Review privacy/security/terms diffs,[LEGAL_OWNER],PR review and decision,No unresolved placeholders or unsupported claims,2026-08-28,planned
+weekly,Review vulnerabilities and dependency advisories,[SECURITY_OWNER],Triage export and remediation tickets,All critical/high items have owner and due date,2026-08-28,planned
+weekly,Review uptime and alert ingestion,[OPS_OWNER],Signed raw check export,Real endpoint and clock source recorded,2026-10-02,blocked
+monthly,Access and privileged account review,[SECURITY_OWNER],Access review sign-off,Leavers removed; exceptions approved,2026-09-30,blocked
+monthly,Retention/deletion exception review,[DATA_OWNER],Deletion ledger and restore test,No expired data without approved exception,2026-09-30,blocked
+quarterly,Incident tabletop and contact test,[IR_OWNER],Scenario timeline and actions,All RTO/notification decisions exercised,2026-09-30,planned
+quarterly,Subprocessor/vendor review,[PRIVACY_OWNER],Vendor register and DPAs,New vendors approved before data access,2026-09-30,blocked
+semiannual,Internal ISMS/control review,[SECURITY_OWNER],Risk treatment and SoA review,Control owners attest evidence,2027-02-28,blocked
+annual,Legal notice/terms/DPA review,[LEGAL_OWNER],Counsel review memo and version bump,Jurisdiction and processing changes assessed,2027-08-21,blocked
+annual,Independent SOC 2 or ISO cycle,[EXEC_SPONSOR],CPA report or accredited certificate,External opinion/certificate issued,2027-08-21,not funded

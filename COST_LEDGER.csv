@@ -1,0 +1,11 @@
+name,version,source_or_license,purpose,incremental_cash_usd,founder_hours,electricity_or_compute,existing_subscription,deferred_production_cost
+Python,3.10.1,PSF,local runtime,0.00,1.0,local CPU not monetized,none,hosted runtime
+pytest,9.1.1,MIT,tests,0.00,0.3,local CPU not monetized,none,managed CI
+setuptools,75.8.0,MIT,build backend,0.00,0.1,local CPU not monetized,none,signing/release service
+ZoracleFlux,1.0.0rc2,MIT,release candidate,0.00,6.0,local CPU/storage not monetized,none,security/privacy/support operations
+Customer validation,not run,n/a,no interviews or pilot performed,0.00,0.0,n/a,none,funded discovery
+Final release hardening,1.0.0rc2,MIT,SQLite pilot/adversarial/rehearsal,0.00,2.5,local CPU/storage not monetized,none,independent security review and signed distribution
+Claude/Codex support bundle,1.0.0rc2,MIT,plugin skill MCP and direct fallback integration,0.00,1.0,local CPU not monetized,none,native clients and funded integration
+Antigravity support,1.107.0/platform plus 1.0.0rc2 adapter,Apache/MIT,platform registration MCP stdio and fallback,0.00,1.0,local CPU not monetized,none,authenticated host verification
+Production-shaped pilot,1.0.0rc2,MIT,local security monitoring backup restore and runbooks,0.00,1.5,local CPU/storage not monetized,none,Gate B hosted operations legal certification SLA
+RC4 gate integration,1.0.0rc4,MIT,compliance GitHub-ops and Sigstore design/validation overlays,0.00,2.0,local CPU/storage not monetized,none,live GitHub/OIDC/legal/certification operations

@@ -1,0 +1,9 @@
+# Optional project-scoped MCP configuration for a trusted Codex repository.
+# Replace the two absolute paths before copying this file to .codex/config.toml.
+[mcp_servers.zoracleflux]
+command = "python"
+args = ["C:\\absolute\\path\\to\\codex\\mcp_server.py"]
+cwd = "C:\\absolute\\path\\to\\zoracleflux\\repository"
+enabled = true
+required = false
+default_tools_approval_mode = "approve"

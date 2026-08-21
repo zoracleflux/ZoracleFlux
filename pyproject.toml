@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools==75.8.0", "wheel==0.45.1"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "zoracleflux"
+version = "1.0.0rc2"
+description = "Offline-first bounded behavioral property checks for a supported Python subset"
+readme = "README.md"
+requires-python = ">=3.10,<3.13"
+license = {text = "MIT"}
+authors = [{name = "ZoracleFlux"}]
+dependencies = []
+
+[project.optional-dependencies]
+test = ["pytest==9.1.1"]
+
+[project.scripts]
+zoracleflux = "zoracleflux.cli:main"
+oracleforge = "zoracleflux.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+addopts = "-q"
+testpaths = ["tests"]

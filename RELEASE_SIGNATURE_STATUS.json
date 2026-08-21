@@ -1,0 +1,18 @@
+{
+  "bundle": "final-release-candidate-rc3",
+  "payload_version": "1.0.0rc2",
+  "status": "locally-signed-demo",
+  "verified": {
+    "wheel": true,
+    "sdist": true,
+    "sbom": true,
+    "manifest": true,
+    "signature_count": 4
+  },
+  "algorithm": "OpenSSH Ed25519",
+  "fingerprint": "SHA256:TwyPworhpQ2AJG0hF8jr3PXF/FIY+Cnm9a7CwVtjKF4",
+  "trust_level": "local out-of-band key only; not organization-authenticated or transparency-backed",
+  "private_key": "deleted",
+  "sigstore": "not executed locally; no OIDC/Fulcio/Rekor evidence",
+  "manifest_note": "preserved signed payload manifest has 3 stale generated entries; see FINAL_INTEGRATION_REPORT.md"
+}

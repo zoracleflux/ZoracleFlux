@@ -1,0 +1,20 @@
+{
+  "name": "zoracleflux-local",
+  "interface": {
+    "displayName": "ZoracleFlux local plugins"
+  },
+  "plugins": [
+    {
+      "name": "zoracleflux-codex",
+      "source": {
+        "source": "local",
+        "path": "./plugins/zoracleflux"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    }
+  ]
+}

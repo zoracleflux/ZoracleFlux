@@ -1,0 +1,13 @@
+{
+  "servers": {
+    "zoracleflux": {
+      "command": "python",
+      "args": [
+        "-u",
+        "server.py"
+      ],
+      "cwd": "C:\\Users\\ziada\\.copilot\\chats\\70b7f34f-e807-4a08-ae86-c1745773252f\\artifacts\\zoracleflux\\final-release-candidate-rc3\\support\\antigravity"
+    }
+  },
+  "inputs": []
+}

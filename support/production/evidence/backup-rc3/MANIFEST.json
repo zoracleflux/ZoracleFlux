@@ -1,0 +1,9 @@
+{
+  "cash_usd": "0.00",
+  "created_at": "2026-08-21T07:33:14.668095+00:00",
+  "file": "pilot.sqlite3",
+  "schema_version": 1,
+  "sha256": "453d4fd4bd959be3c04db59d0295f2c5e56ee639ae7b2cab1a4b9b874a95af98",
+  "source_name": "pilot.sqlite3",
+  "sqlite_integrity": true
+}

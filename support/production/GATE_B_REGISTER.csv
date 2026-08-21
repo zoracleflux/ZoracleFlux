@@ -1,0 +1,15 @@
+id,workstream,dependency,acceptance_evidence,owner_needed,status,cash_usd_now,deferred_cost_or_risk
+B-001,hosting,production compute and isolated runtime,approved architecture plus deployed environment health evidence,technical owner,deferred,0.00,"Hosting, patching, capacity and egress costs"
+B-002,network,DNS TLS ingress and egress policy,certificate inventory and external synthetic checks,platform owner,deferred,0.00,"Domain, certificates, firewall, bandwidth"
+B-003,identity,tenant isolation MFA RBAC break-glass,access review and isolation test evidence,security owner,deferred,0.00,"Identity provider and operations"
+B-004,secrets,SOPS+age or OpenBao with rotation and audit,secret lifecycle and recovery test,security owner,deferred,0.00,"Managed KMS/HSM or secret service"
+B-005,observability,central logs metrics traces paging,alert tests and named on-call,operations owner,deferred,0.00,"Monitoring storage and paging"
+B-006,resilience,encrypted immutable off-site backup and restore,verified restore with RPO/RTO evidence,operations owner,deferred,0.00,"Backup storage and key custody"
+B-007,security,independent threat model and penetration review,signed report and remediated findings,security owner,deferred,0.00,"Qualified assessor"
+B-008,legal,privacy terms DPA subprocessors retention,legal-approved published documents,legal owner,deferred,0.00,"Counsel and regulatory analysis"
+B-009,certification,SOC2/ISO scope controls audit,attestation or certification report,executive owner,deferred,0.00,"Audit and certification fees"
+B-010,support,severity matrix contacts escalation and staffing,tested incident tabletop and rota,service owner,deferred,0.00,"On-call and support operations"
+B-011,customer,consent data classification DPA and pilot acceptance,signed customer approval and feedback ledger,customer owner,deferred,0.00,"Customer time and possible incentives"
+B-012,release,artifact signing SBOM provenance and rollback,signed manifest verification plus rollback drill,release owner,deferred,0.00,"Key custody and release service"
+B-013,SLA,measurement definition targets exclusions credits,executed agreement and baseline history,legal+operations,deferred,0.00,"Contractual liability and service cost"
+

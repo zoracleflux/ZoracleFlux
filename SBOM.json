@@ -1,0 +1,60 @@
+{
+  "bomFormat": "CycloneDX",
+  "components": [
+    {
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "name": "pytest",
+      "scope": "test",
+      "type": "library",
+      "version": "9.1.1"
+    },
+    {
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "name": "setuptools",
+      "scope": "build",
+      "type": "library",
+      "version": "75.8.0"
+    },
+    {
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "name": "wheel",
+      "scope": "build",
+      "type": "library",
+      "version": "0.45.1"
+    }
+  ],
+  "metadata": {
+    "component": {
+      "name": "zoracleflux",
+      "type": "application",
+      "version": "1.0.0rc2"
+    },
+    "tools": [
+      {
+        "name": "python",
+        "vendor": "Python Software Foundation",
+        "version": "3.10.1"
+      }
+    ]
+  },
+  "specVersion": "1.5",
+  "version": 1
+}

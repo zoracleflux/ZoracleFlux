@@ -1,0 +1,67 @@
+ZoracleFlux organization-trusted signing gatework local evidence
+Recorded: 2026-08-21
+No GitHub OIDC, Fulcio, Rekor, Sigstore bundle, or GitHub attestation was used.
+
+COMMAND:
+Push-Location C:\Users\ziada\.copilot\chats\70b7f34f-e807-4a08-ae86-c1745773252f\artifacts\zoracleflux\final-release-candidate-rc3
+py -3.10 C:\Users\ziada\.copilot\chats\70b7f34f-e807-4a08-ae86-c1745773252f\artifacts\zoracleflux\gatework\sigstore-org\scripts\create_release_manifest.py --output C:\Users\ziada\.copilot\chats\70b7f34f-e807-4a08-ae86-c1745773252f\artifacts\zoracleflux\gatework\sigstore-org\local-test\ARTIFACT_MANIFEST.sha256 dist\zoracleflux-1.0.0rc2-py3-none-any.whl dist\zoracleflux-1.0.0rc2.tar.gz SBOM.json
+OUTPUT:
+wrote ...\local-test\ARTIFACT_MANIFEST.sha256 (3 entries)
+ee9ccf8abb4a7e7945357fa25a937f2fdee550177face3ee0842b6931625f6bb  SBOM.json
+67142421933973cbc91890eafcb9a6c8345bcc9f578671359a7d9c96ffdc7d8b  dist/zoracleflux-1.0.0rc2-py3-none-any.whl
+b27f6ce1335c808db2c9181715af198962ea99f17ddeb8d694f87b50618d33e6  dist/zoracleflux-1.0.0rc2.tar.gz
+Exit code: 0
+
+COMMAND:
+py -3.10 ...\scripts\local_fallback_verify.py --candidate ...\final-release-candidate-rc3
+OUTPUT:
+Good "file" signature for zoracleflux-release with ED25519 key SHA256:TwyPworhpQ2AJG0hF8jr3PXF/FIY+Cnm9a7CwVtjKF4
+wheel: PASS
+Good "file" signature for zoracleflux-release with ED25519 key SHA256:TwyPworhpQ2AJG0hF8jr3PXF/FIY+Cnm9a7CwVtjKF4
+sdist: PASS
+Good "file" signature for zoracleflux-release with ED25519 key SHA256:TwyPworhpQ2AJG0hF8jr3PXF/FIY+Cnm9a7CwVtjKF4
+sbom: PASS
+Good "file" signature for zoracleflux-release with ED25519 key SHA256:TwyPworhpQ2AJG0hF8jr3PXF/FIY+Cnm9a7CwVtjKF4
+manifest: PASS
+Exit code: 0
+
+COMMAND:
+py -3.10 ...\scripts\verify_sigstore.py --repository ORG/REPO --ref refs/tags/v1.0.0rc3 --sha deadbeef --artifact ...\dist\zoracleflux-1.0.0rc2-py3-none-any.whl
+OUTPUT:
+FAIL ...\zoracleflux-1.0.0rc2-py3-none-any.whl: bundle missing: ...\zoracleflux-1.0.0rc2-py3-none-any.whl.sigstore.json
+Exit code: 1 (expected fail-closed result)
+
+COMMAND:
+py -3.10 -m py_compile scripts\create_release_manifest.py scripts\verify_sigstore.py scripts\local_fallback_verify.py
+OUTPUT:
+py_compile: PASS
+Exit code: 0
+
+COMMAND:
+Get-ChildItem -Recurse -File ...\sigstore-org -Include *.sigstore,*.sigstore.json
+OUTPUT:
+Sigstore bundles present: 0 (intentional)
+
+COMMAND:
+py -3.10 -c "import json; json.load(open('provenance-policy.json')); print('JSON: PASS')"
+py -3.10 -m py_compile scripts\create_release_manifest.py scripts\verify_sigstore.py scripts\local_fallback_verify.py
+OUTPUT:
+JSON: PASS
+Python: PASS
+
+COMMAND:
+py -3.10 -c "import yaml; yaml.safe_load(open('.github/workflows/release-signing.yml')); yaml.safe_load(open('.github/workflows/pypi-trusted-publishing.yml')); print('YAML: PASS')"
+OUTPUT:
+YAML: PASS
+
+COMMAND:
+Get-ChildItem -Recurse -File ...\sigstore-org -Include *.sigstore,*.sigstore.json
+OUTPUT:
+Count: 0
+
+Final local fallback rerun:
+wheel: PASS
+sdist: PASS
+sbom: PASS
+manifest: PASS
+Exit code: 0

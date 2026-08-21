@@ -1,0 +1,26 @@
+{
+  "integration": "antigravity",
+  "cash_spent_usd": 0,
+  "platform_capability": "verified",
+  "runtime": {
+    "product": "Antigravity IDE",
+    "version": "1.107.0",
+    "commit": "ecfbad74d93962fc8ca485d93ab9b4f3d4cb6cf8",
+    "cli_wrapper": "antigravity-ide.cmd"
+  },
+  "zoracleflux_adapter": {
+    "implemented": true,
+    "transport": "MCP stdio",
+    "registration_smoke": "passed",
+    "native_tool_call": "unverified_here",
+    "network": false,
+    "credentials_required": false
+  },
+  "blocker": "An isolated host launch could not obtain Antigravity account state, and the installed CLI exposes registration/status but no unauthenticated tools/call command.",
+  "fallback": "python -m zoracleflux.cli check --json",
+  "evidence": [
+    "runtime-smoke.txt",
+    "verification-output.txt",
+    "REPORT.md"
+  ]
+}

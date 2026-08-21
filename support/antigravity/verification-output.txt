@@ -1,0 +1,33 @@
+Verification timestamp (UTC): 2026-08-21T07:20:00Z
+
+> installed runtime probe
+Antigravity IDE: 1.107.0
+antigravity-ide.cmd: 1.107.0
+agy: NOT_FOUND
+
+> python --version
+3.10.1
+
+> python -m py_compile server.py test_protocol.py
+exit: 0
+
+> JSON parse and installed-schema compatibility
+json: valid (5 files)
+schema-compatible config: passed
+exit: 0
+
+> python -m unittest discover -s . -p test_*.py -v
+test_initialize_list_and_check (test_protocol.McpProtocolTests) ... ok
+test_invalid_tool_arguments_are_rejected (test_protocol.McpProtocolTests) ... ok
+test_installed_schema_compatible_config_shapes (test_protocol.RuntimeConfigTests) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 1.458s
+
+OK
+exit: 0
+
+> MCP initialize/tools-list smoke
+{"jsonrpc":"2.0","id":1,"result":{"protocolVersion":"2025-06-18","capabilities":{"tools":{}},"serverInfo":{"name":"zoracleflux-antigravity","version":"1.0.0"},"instructions":"Offline ZoracleFlux checks; no network or model calls."}}
+{"jsonrpc":"2.0","id":2,"result":{"tools":[{"name":"zoracleflux_check","description":"Run ZoracleFlux's bounded deterministic relation checks offline.","inputSchema":{"type":"object","properties":{"timeout_ms":{"type":"integer","minimum":1,"maximum":10000,"default":250}},"additionalProperties":false}},{"name":"zoracleflux_doctor","description":"Report ZoracleFlux local capability and safety defaults.","inputSchema":{"type":"object","additionalProperties":false}}]}}
+exit: 0

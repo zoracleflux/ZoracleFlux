@@ -1,0 +1,29 @@
+name: Uptime probe
+
+on:
+  schedule:
+    - cron: "17 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    env:
+      TARGET_URL: ${{ vars.HEALTHCHECK_URL }}
+    steps:
+      - name: Validate configuration
+        run: |
+          if [ -z "$TARGET_URL" ]; then
+            echo "HEALTHCHECK_URL repository variable is not configured"
+            exit 1
+          fi
+      - name: Probe HTTPS endpoint
+        run: |
+          curl --fail --silent --show-error --location \
+            --connect-timeout 10 --max-time 20 \
+            --write-out '\nhttp_code=%{http_code} time_total=%{time_total}\n' \
+            "$TARGET_URL"
